@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block style %}
+<style>
+    body{
+        background-color: rgb(182, 238, 219);
+    }
+    .para{
+        
+        text-transform: capitalize;
+        margin-left: 13%;
+        margin-top: 15px;
+        font-family: 'Noto Serif', serif;
+    }
+    .image{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 180px;
+        height: 200px;
+        border-radius: 170px;
+        margin-top: 12%;
+    }
+    .btni{
+        border-radius: 9px;
+        padding: 9px;
+        color: white;
+        background-color: black;
+    }
+    @media screen and (max-width: 480px) {
+        .para{
+            margin-left: 6%;
+            margin-right: 6%;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+<img class="image" src="https://aman-byte-hacker.github.io/React/static/media/aman.ccc4d1e9.jpeg" alt="Admin">
+<p class="para">He is an enterprenuer he runs a course selling website.he is a full stack web dev and web penetration tester && ethical hacker.</p>
+<p style="text-align: center;"><a target="_AMAN" href="https://portfolioweb.pythonanywhere.com/"><button class="btni" type="submit">His Portfolio</button></a></p>
+{% endblock %}

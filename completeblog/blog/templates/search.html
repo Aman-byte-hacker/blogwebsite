@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block style %}
+<style>
+    body{
+      
+    }
+    .head{
+        text-align: center;
+        font-family: 'Staatliches', cursive;
+    }
+    .para{
+        
+        margin-left: 10%;
+        margin-right: 10%;
+        font-family: 'Noto Serif', serif;
+        font-size: large;
+    }
+    .image{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        height: 400px;
+       
+    }
+    #facebook{
+        border: 1px;
+        color: blue;
+        font-size: 42px;
+        position: absolute;
+        margin-top: 10%;
+        left: 27%;
+        
+        
+    }
+    #linkedin{
+        background-color:#0e76a8;
+        color:white;
+        border: 1px;
+        padding: 5px;
+        font-size: 30px;
+        position: absolute;
+        margin-top: 15%;
+        left: 27%;
+    }
+    #twitter{
+        background-color: #00acee;
+        color:white;
+        border: 1px;
+        padding: 5px;
+        font-size: 30px;
+        position: absolute;
+        margin-top: 20%;
+        left: 27%;
+    }
+    #comment{
+       margin-left: 28%;
+    }
+    .sorry{
+        margin-left: 33%;
+        font-size: large;
+        color: red;
+        margin-top: 20%;
+    }
+    .blogs{
+        border-radius: 9px;
+        padding: 12px;
+        background-color: #0e76a8;
+        color: white;
+    }
+    @media screen and (max-width: 480px) {
+        .sorry{
+            margin-left: 12%;
+            margin-top: 60%;
+        }
+        .image{
+            margin-left:5px;
+            margin-right: 5px;
+            width: 97%;
+        }
+        #facebook{
+            left: 5%;
+            margin-top: 40%;
+        }
+        #linkedin{
+            left: 5%;
+            margin-top: 60%;
+        }
+        #twitter{
+            left: 5%;
+            margin-top: 80%;
+        }
+        .head{
+            margin-top: 4px;
+        }
+        #comment{
+            margin-left: 1%;
+        }
+
+    }
+</style>
+{% endblock %}
+{% block content %}
+    {% if blogs|length < 1 %}
+        <p class="sorry">🤔Sorry! No results found try with different keyword</p>
+        <p style="text-align: center;"><a href="/blog"><button class="blogs" type="submit">Back To Blogs</button></a></p>
+    {% endif %}    
+{% for blog in blogs %}
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://vyasbyte.pythonanywhere.com" target="_blank"><i id="facebook" class="fa fa-facebook-official" aria-hidden="true"></i></a>
+    <i id="linkedin" class="fa fa-linkedin" aria-hidden="true"></i>
+    <i id="twitter" class="fa fa-twitter" aria-hidden="true"></i>
+    <div class="container">
+        <h4>Search Results:</h4>
+    </div>
+    <h5 class="head">{{blog.name}}</h1>
+    <img class="image" src="{{blog.image.url}}" alt="hell">
+    <p class="para">{{blog.para}}</p>
+    <p class="comment"><div id="comment" class="fb-comments" data-href="http://localhost:8000/{{blog.id}}" data-numposts="5" data-width=""></div></p>
+    <hr>
+    <hr>
+{% endfor %}    
+{% endblock %}
